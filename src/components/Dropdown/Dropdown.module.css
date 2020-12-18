@@ -1,17 +1,26 @@
 @import-normalize;
 
 .Dropdown {
-
+	background-color: grey;
+	/* background-color: white; */
+	color: white;
+	position: relative;
+	/* z-index: 2; */
+	/* box-shadow: 0px 10px 20px blue inset;   */
 }
 
 .Header {
 	display: flex;
 	background-color: grey;
-	color: white;
+	/* background-color: white; */
+	/* color: white; */
+	color: black;
+	/* border: 1px solid #cfcfcf;*/
 	flex-direction: row;
 	justify-content: space-between;
 	align-items: center;
 	padding: 0.5rem;
+	/* box-shadow: 0px 10px 10px grey; */
 }
 
 .SelectedItemText {
@@ -19,15 +28,35 @@
 }
 
 .DropdownMenu {
-	background-color: teal;
-	border-color: rgb(1, 20, 20);
-	display: block;
+	/* background-color: teal; */
+	background-color: grey;
+	/* display: block; */
+	position: absolute;
+	color: white;
+	/* width: 96.9vw; */
+	width: 100%;
+	text-indent: 13px;
+	max-height: 50vh;
+	transition: max-height 0.5s ease-out;
+	overflow: auto;
+	/* box-shadow: 0px 10px 10px grey; */
 	/* height: 125px; */
     /* animation: dropdown 0.2s forwards ease-in; */
 }
 
+.DropdownMenu > div {
+	/* margin-top: 8px; */
+	margin-bottom: 8px;
+}
+
+.DropdownMenu > div:first-child {
+	margin-top: 8px;
+}
+
 .DropdownMenu.Hidden {
-	display: none;
+	/* display: none; */
+	max-height: 0;
+	transition: max-height 0.5s ease-out;
 }
 
 .DropDownOptions {
