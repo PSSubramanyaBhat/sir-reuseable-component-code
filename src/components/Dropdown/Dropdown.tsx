@@ -7,6 +7,7 @@ import cn from 'classnames';
 const DropdownItem = ({ title, onClick }) => {
 	return (
 		<div
+			// className={styles.Dropdownitem}
 			onClick={() => {
 				onClick(title);
 			}}
@@ -20,7 +21,7 @@ const Dropdown = () => {
 	const [show, setShow] = useState(false);
 	const [selectedItem, setSelectedItem] = useState("Option 1");
 	const dropdownClassNames = cn(styles.DropdownMenu, { [styles.Hidden]: !show });
-
+	const dropdownContainerClassNames = cn(styles.Dropdown, { [styles.Hidden]: !show });
 	const onItemClicked = (item) => {
 		setSelectedItem(item);
 		setShow(false);
@@ -28,10 +29,10 @@ const Dropdown = () => {
 
 
 	return (
-		<div className={styles.Dropdown}>
+		<div className={dropdownContainerClassNames}>
 			<div className={styles.Header} onClick={() => setShow((prev: boolean) => !prev)}>
 				<div className={styles.SelectedItemText}> {selectedItem}</div>
-				<Arrow direction={show ? Direction.Top : Direction.Bottom} color="white"></Arrow>
+				<Arrow direction={show ? Direction.Top : Direction.Bottom} color={'#212121'}></Arrow>
 			</div>
 			<div className={dropdownClassNames}>
 				<DropdownItem title="Option 1" onClick={onItemClicked}></DropdownItem>

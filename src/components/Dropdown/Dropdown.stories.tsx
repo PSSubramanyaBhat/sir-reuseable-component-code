@@ -10,6 +10,7 @@ export default {
 export const Dropdown_1 = () => (
 	<div>
 		<Dropdown />
-		<input type="text" id="fname" name="fname"/>
+		<br></br>
+		<input type="text" id="fname" name="fname" />
 	</div>
 );
