@@ -1,7 +1,8 @@
 import Dropdown from './Dropdown';
 import React, { useState } from 'react';
+import week from '../../week';
 
-const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+// const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default {
 	title: 'Pokemon/Dropdown',
