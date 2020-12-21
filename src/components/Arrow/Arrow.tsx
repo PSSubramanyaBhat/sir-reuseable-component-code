@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './Arrow.module.css';
+// import styles from './Arrow.module.css';
+import styles from './Arrow.module.scss';
 
 export enum Direction {
   Right = 0,

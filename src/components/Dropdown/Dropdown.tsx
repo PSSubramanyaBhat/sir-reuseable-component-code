@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Arrow, { Direction } from '../Arrow';
-import styles from './Dropdown.module.css';
+import styles from './Dropdown.module.scss';
 import cn from 'classnames';
 
 export interface DropdownItemProp {

@@ -24,12 +24,11 @@
 	right: 0;
 	border: solid 1px #dbdbdb;
 	border-radius: 4px;
-	/* max-height: 48px; */
-}
 
-.Dropdown.Active {
-	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
-	border: none;
+	&.Active {
+		box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.24);
+		border: none;
+	}
 }
 
 .Header {
@@ -49,22 +48,19 @@
 	overflow: auto;
 	max-height: 0;
 	background: white;
-	/* padding-left: 10px; */
-}
-
-.Menu.Active {
-	/* overflow: auto; */
-	/* max-height: 50vh; */
-	max-height: 150px;
+	
+	&.Active {
+		max-height: 150px;
+	}
 }
 
 .Option {
 	height: 30px;
 	padding-top: 10px;
 	padding-left: 10px;
-}
 
-.Option:hover {
-	height: 30px;
-	background-color: #eeeeee;
+	&:hover {
+		height: 30px;
+		background-color: #eeeeee;
+	}
 }
