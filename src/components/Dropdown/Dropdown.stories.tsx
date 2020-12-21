@@ -1,16 +1,21 @@
 import Dropdown from './Dropdown';
 import React, { useState } from 'react';
 
+const week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 export default {
 	title: 'Pokemon/Dropdown',
 	component: Dropdown,
 };
 
-export const Dropdown_1 = () => (
-	<div>
-		<Dropdown />
-		<br></br>
-		<input type="text" id="fname" name="fname" />
-	</div>
-);
+export const Dropdown_1 = () => {
+	const [day, setDay] = useState("Sunday");
+
+	return (
+		<div>
+			<Dropdown options={week} selectedoption={day} onItemSelected={(weekDay: string) => setDay(weekDay)} />
+			<br></br>
+			<input type="text" id="fname" name="fname" />
+		</div>
+	);
+};

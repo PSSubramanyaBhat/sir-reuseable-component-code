@@ -3,8 +3,24 @@ import Arrow, { Direction } from '../Arrow';
 import styles from './Dropdown.module.css';
 import cn from 'classnames';
 
+export interface DropdownItemProp {
+	title: string,
+	onClick: Function,
+}
 
-const DropdownItem = ({ title, onClick }) => {
+/*
+export interface DropdownOption {
+title: string,
+}
+*/  //DOUBT......
+
+export interface DropdownProps {
+	options: string[],
+	selectedoption: string,
+	onItemSelected: Function,
+}
+
+const DropdownItem = ({ title, onClick }: DropdownItemProp) => {
 	return (
 		<div
 			className={styles.Option}
@@ -17,19 +33,15 @@ const DropdownItem = ({ title, onClick }) => {
 	);
 }
 
-const Dropdown = ({options, selectedoption, onItemSelected}) => {
-	// const [show, setShow] = useState(false);
+const Dropdown = ({ options, selectedoption, onItemSelected }: DropdownProps) => {
 	const [active, setActive] = useState(false);
-	const [selectedItem, setSelectedItem] = useState("Option 1");
-	// const dropdownClassNames = cn(styles.DropdownMenu, { [styles.Hidden]: !show });
-	// const dropdownContainerClassNames = cn(styles.Dropdown, { [styles.Hidden]: !show });
-	// const menuClasses = cn(styles.Menu, { [styles.Active]: show });
+	const [selectedItem, setSelectedItem] = useState(selectedoption);
 	const dropdownClasses = cn(styles.Dropdown, { [styles.Active]: active });
 	const menuClasses = cn(styles.Menu, { [styles.Active]: active });
 
-	const onItemClicked = (item) => {
+	const onItemClicked = (item: string) => {
 		setSelectedItem(item);
-		// setShow(false);
+		onItemSelected(item);
 		setActive(false);
 	}
 
@@ -38,12 +50,7 @@ const Dropdown = ({options, selectedoption, onItemSelected}) => {
 		<div className={styles.DropdownContainer}>
 			<div
 				className={dropdownClasses}
-			// className={dropdownContainerClassNames}
 			>
-				{/* <div className={styles.Header} onClick={() => setShow((prev: boolean) => !prev)}>
-					<div className={styles.SelectedItemText}> {selectedItem}</div>
-					<Arrow direction={show ? Direction.Top : Direction.Bottom} color={'#212121'}></Arrow>
-				</div> */}
 
 				<div className={styles.Header} onClick={() => setActive((prev: boolean) => !prev)}>
 					<div className={styles.SelectedItemText}> {selectedItem}</div>
@@ -52,14 +59,12 @@ const Dropdown = ({options, selectedoption, onItemSelected}) => {
 
 				<div
 					className={menuClasses}
-				// className={dropdownClassNames}
 				>
-					<DropdownItem title="Option 1" onClick={onItemClicked}></DropdownItem>
-					<DropdownItem title="Option 2" onClick={onItemClicked}></DropdownItem>
-					<DropdownItem title="Option 3" onClick={onItemClicked}></DropdownItem>
-					<DropdownItem title="Option 4" onClick={onItemClicked}></DropdownItem>
-					<DropdownItem title="Option 5" onClick={onItemClicked}></DropdownItem>
-					<DropdownItem title="Option 6" onClick={onItemClicked}></DropdownItem>
+					{options.map((weekDayName, id) => {
+						return (
+							<DropdownItem title={weekDayName} onClick={onItemClicked}></DropdownItem>
+						);
+					})}
 				</div>
 			</div>
 		</div>
