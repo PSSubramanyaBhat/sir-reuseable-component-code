@@ -7,7 +7,7 @@ import cn from 'classnames';
 const DropdownItem = ({ title, onClick }) => {
 	return (
 		<div
-			// className={styles.Dropdownitem}
+			className={styles.Option}
 			onClick={() => {
 				onClick(title);
 			}}
@@ -17,14 +17,16 @@ const DropdownItem = ({ title, onClick }) => {
 	);
 }
 
-const Dropdown = () => {
+const Dropdown = ({options, selectedoption, onItemSelected}) => {
 	// const [show, setShow] = useState(false);
 	const [active, setActive] = useState(false);
 	const [selectedItem, setSelectedItem] = useState("Option 1");
 	// const dropdownClassNames = cn(styles.DropdownMenu, { [styles.Hidden]: !show });
 	// const dropdownContainerClassNames = cn(styles.Dropdown, { [styles.Hidden]: !show });
 	// const menuClasses = cn(styles.Menu, { [styles.Active]: show });
+	const dropdownClasses = cn(styles.Dropdown, { [styles.Active]: active });
 	const menuClasses = cn(styles.Menu, { [styles.Active]: active });
+
 	const onItemClicked = (item) => {
 		setSelectedItem(item);
 		// setShow(false);
@@ -35,6 +37,7 @@ const Dropdown = () => {
 	return (
 		<div className={styles.DropdownContainer}>
 			<div
+				className={dropdownClasses}
 			// className={dropdownContainerClassNames}
 			>
 				{/* <div className={styles.Header} onClick={() => setShow((prev: boolean) => !prev)}>
@@ -48,6 +51,7 @@ const Dropdown = () => {
 				</div>
 
 				<div
+					className={menuClasses}
 				// className={dropdownClassNames}
 				>
 					<DropdownItem title="Option 1" onClick={onItemClicked}></DropdownItem>
@@ -56,14 +60,6 @@ const Dropdown = () => {
 					<DropdownItem title="Option 4" onClick={onItemClicked}></DropdownItem>
 					<DropdownItem title="Option 5" onClick={onItemClicked}></DropdownItem>
 					<DropdownItem title="Option 6" onClick={onItemClicked}></DropdownItem>
-
-					{/* 
-				<div className={styles.DropDownOptions}>Option 1</div>
-				<div className={styles.DropDownOptions}>Option 2</div>
-				<div className={styles.DropDownOptions}>Option 3</div>
-				<div className={styles.DropDownOptions}>Option 4</div>
-				<div className={styles.DropDownOptions}>Option 5</div>
-				<div className={styles.DropDownOptions}>Option 6</div> */}
 				</div>
 			</div>
 		</div>
